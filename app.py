@@ -218,39 +218,59 @@ def save_quote():
 
 
 # AI MOOD SUGGESTION
+# AI MOOD SUGGESTION
 @app.route("/suggest-mood", methods=["POST"])
 def suggest_mood():
 
     try:
-        quote = request.json.get("quote")
+
+        data = request.get_json()
+
+        quote = data.get("quote")
 
         prompt = f"""
-        What mood best fits this quote?
-        Only answer with ONE word:
-        sad, hopeful, romantic, or powerful.
+Classify the emotional mood of this quote.
 
-        Quote:
-        {quote}
-        """
+ONLY reply with ONE word from this list:
+sad
+hopeful
+romantic
+powerful
+
+Quote:
+{quote}
+"""
 
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-2.0-flash-001",
             contents=prompt
         )
 
         mood = response.text.strip().lower()
+
+        if "sad" in mood:
+            mood = "sad"
+
+        elif "romantic" in mood:
+            mood = "romantic"
+
+        elif "powerful" in mood:
+            mood = "powerful"
+
+        else:
+            mood = "hopeful"
 
         return jsonify({
             "mood": mood
         })
 
     except Exception as e:
-        print(e)
+
+        print("GEMINI ERROR:", e)
 
         return jsonify({
             "mood": "hopeful"
         })
-
 
 # DELETE QUOTE
 @app.route('/delete', methods=['POST'])
