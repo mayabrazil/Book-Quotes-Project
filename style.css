@@ -47,10 +47,40 @@ p {
 }
 
 
-/*main content*/
+/* main content*/
 #main-wrap {
-  margin: 20px;
-  padding: 10px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  max-width: 960px;
+  overflow: auto;
+}
+
+/*Three-column layout*/
+#page-columns {
+  overflow: auto;
+}
+
+#sidebar-left {
+  float: left;
+  width: 18%;
+  margin-right: 2%;
+  padding-right: 16px;
+}
+
+#feed {
+  float: left;
+  width: 52%;
+  margin-right: 2%;
+}
+
+#sidebar-right {
+  float: left;
+  width: 20%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E0D5C5;
+  padding: 14px;
+  background-color: #FFFFFF;
 }
 
 /* Header */
@@ -136,7 +166,7 @@ blockquote {
   border-bottom-color: #E0D5C5;
   padding-bottom: 8px;
   margin-bottom: 14px;
-
+}
 
 /*Navigation*/
 nav.navbar {
@@ -180,6 +210,87 @@ div.lnks a {
 div.lnks a:hover {
   color: #C8892A;
   text-decoration: none;
+}
+
+/* Sidebar left nav links*/
+#sidebar-left .lnks ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar-left .lnks ul li {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #EDE4D6;
+}
+
+#sidebar-left .lnks ul li a {
+  display: block;
+  padding: 7px 0;
+  font-size: 13px;
+  color: #5C3D22;
+}
+
+#sidebar-left .lnks ul li a:hover {
+  color: #C8892A;
+}
+
+#sidebar-left ol {
+  margin: 0;
+  padding: 0 0 0 18px;
+}
+
+#sidebar-left ol li {
+  font-size: 12px;
+  color: #5C3D22;
+  padding: 4px 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #F0E8DC;
+}
+
+/* =====================
+   Mood Filter Bar
+   ===================== */
+#mood-bar {
+  margin: 10px 0 16px 0;
+}
+
+/*  Mood Pills*/
+.mood-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 3px 3px 3px 0;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.mood-sad {
+  background-color: #E8EEF7;
+  color: #2A4A7F;
+  border-color: #BFD0EA;
+}
+
+.mood-hopeful {
+  background-color: #EAF3DE;
+  color: #3B6D11;
+  border-color: #C0DD97;
+}
+
+.mood-romantic {
+  background-color: #FBEAF0;
+  color: #993556;
+  border-color: #F4C0D1;
+}
+
+.mood-powerful {
+  background-color: #FAEEDA;
+  color: #854F0B;
+  border-color: #FAC775;
 }
 
 /* Footer */
@@ -226,3 +337,4 @@ div.lnks a:hover {
 #site-footer a:hover {
   color: #C8892A;
 }
+
