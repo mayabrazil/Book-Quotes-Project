@@ -1,3 +1,6 @@
+import firebase_admin
+from firebase_admin import credentials, auth
+from flask import session
 from flask import Flask, render_template, request, jsonify
 from datetime import datetime
 from google import genai
@@ -7,6 +10,14 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+
+app.secret_key = "hackathon-secret-key"
+
+cred = credentials.Certificate(
+    "bookquotes-app-firebase-adminsdk-fbsvc-e0994f48fb.json"
+)
+
+firebase_admin.initialize_app(cred)
 
 client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
@@ -19,6 +30,40 @@ saved = []
 my_posts = []
 current_user = "gdg.reads"
 
+#LOGIN
+@app.route('/login', methods=['POST'])
+def login():
+
+    data = request.get_json()
+    id_token = data.get('token')
+
+    try:
+        decoded_token = auth.verify_id_token(id_token)
+
+        session['user'] = {
+            'uid': decoded_token['uid'],
+            'email': decoded_token.get('email')
+        }
+
+        return jsonify({
+            'success': True
+        })
+
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 401
+    
+#LOGOUT
+@app.route('/logout', methods=['POST'])
+def logout():
+
+    session.pop('user', None)
+
+    return jsonify({
+        'success': True
+    })
 
 # HOME PAGE
 @app.route("/")
@@ -77,45 +122,49 @@ def myshelf():
 
 
 # POST A QUOTE
-@app.route("/post-quote", methods=["POST"])
+@app.route('/postquote', methods=['POST'])
 def post_quote():
+
+    # must be logged in
+    if 'user' not in session:
+
+        return jsonify({
+            'success': False,
+            'error': 'Unauthorized'
+        }), 401
 
     data = request.get_json()
 
-    quote = data.get('quote', '').strip()
-    book = data.get('book', '').strip()
-    author = data.get('author', '').strip()
-    mood = data.get('mood', '').strip()
-
-    # make sure fields aren't empty
-    if not quote or not book or not author or not mood:
-
-        return jsonify({
-            'error': 'Missing required fields'
-        }), 400
+    current_user = session['user']['email']
 
     new_quote = {
 
-        'id': len(quotes),
+        'id': len(quotes) + 1,
+
+        'quote': data['quote'],
+
+        'book': data['book'],
+
+        'author': data['author'],
+
+        'mood': data['mood'],
 
         'username': current_user,
 
-        'quote': quote,
-        'book': book,
-        'author': author,
-        'mood': mood,
-
         'likes': 0,
 
-        'timestamp': datetime.now().strftime("%b %d, %I:%M %p")
+        'timestamp': datetime.now().strftime('%B %d, %Y')
     }
 
-    # adds newest quote to top of feed and myshelf
-    quotes.insert(0, new_quote)
-    my_posts.insert(0, new_quote)
+    # add to explore page
+    quotes.append(new_quote)
+
+    # add to user's shelf/profile
+    my_posts.append(new_quote)
 
     return jsonify({
-        'message': 'Quote posted successfully! 🎉'
+        'success': True,
+        'quote': new_quote
     })
 
 

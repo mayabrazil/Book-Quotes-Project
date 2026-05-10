@@ -17,7 +17,28 @@
         <a href="/explore">Explore</a>
         <a href="/myshelf">My Shelf</a>
     </div>
-</nav>
+    <script type="module" src="{{ url_for('static', filename='firebase-auth.js') }}"></script>
+
+    <div class="auth-section">
+
+        <button class="google-btn" onclick="login()">
+            <img 
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                class="google-icon"
+            >
+            Login with Google
+        </button>
+
+        <button class="logout-btn" onclick="logoutUser()">
+            Logout
+        </button>
+
+        <p id="login-status" class="login-status">
+            Not logged in
+        </p>
+
+    </div>
+    </nav>
 
     <!-- Page Title -->
     <div class="profile fade-in">
@@ -130,7 +151,7 @@
             return;
         }
 
-        fetch('/post-quote', {
+        fetch('/postquote', {
 
             method: 'POST',
 
@@ -151,7 +172,16 @@
 
         .then(data => {
 
-            alert(data.message);
+            console.log(data);
+
+            if (!data.success) {
+
+                alert(data.error || 'Failed to post quote.');
+
+                return;
+            }
+
+            alert('Quote posted successfully!');
 
             // clears the form
             document.getElementById('quote-text').value = '';
@@ -159,7 +189,7 @@
             document.getElementById('book-author').value = '';
             document.getElementById('quote-mood').value = '';
 
-            // redirect to explore feed
+            // redirect to explore
             window.location.href = '/explore';
         })
 
