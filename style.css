@@ -1,4 +1,4 @@
-/*For the Body*/
+/* Body*/
 body {
   background-color: #F7F3EE;
   color: #2C1A13;
@@ -7,7 +7,7 @@ body {
   padding: 0;
 }
 
-/*For the headings*/
+/* Headings */
 h1 {
   color: #C8892A;
   margin: 0;
@@ -38,7 +38,7 @@ h3 {
   margin: 20px 0 8px 0;
 }
 
-/* Paragraphs */
+/* Paragraphs*/
 p {
   color: #2C1A13;
   margin: 0 0 8px 0;
@@ -46,8 +46,85 @@ p {
   line-height: 1.6;
 }
 
+/* Links — default (lnks div) */
+div.lnks a {
+  color: #5C3D22;
+  text-decoration: none;
+  font-size: 13px;
+}
 
-/* main content*/
+div.lnks a:hover {
+  color: #C8892A;
+}
+
+/*  Header */
+#site-header {
+  background-color: #1C1410;
+  color: #FAF5EC;
+  padding: 0 24px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #C8892A;
+  overflow: auto;
+  height: 52px;
+}
+
+#header-text {
+  float: left;
+  padding: 10px 0;
+}
+
+#header-text h1 {
+  color: #C8892A;
+}
+
+#tagline {
+  color: #D4B896;
+  font-size: 12px;
+  margin: 2px 0 0 0;
+  padding: 0;
+}
+
+/*  Navigation */
+nav.navbar {
+  background-color: #1C1410;
+  width: 100%;
+  overflow: auto;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #4A2E1A;
+}
+
+nav.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+nav.navbar li a {
+  padding: 8px 16px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: auto;
+  font-size: 13px;
+}
+
+nav.navbar li a:link,
+nav.navbar li a:visited {
+  background-color: #1C1410;
+  color: #D4B896;
+}
+
+nav.navbar ul li a:hover,
+nav.navbar ul li a:active {
+  background-color: #2C1A13;
+  color: #C8892A;
+}
+
+/*  Main Wrap*/
 #main-wrap {
   margin: 0 auto;
   padding: 24px 16px;
@@ -55,7 +132,7 @@ p {
   overflow: auto;
 }
 
-/*Three-column layout*/
+/*  Three-column layout */
 #page-columns {
   overflow: auto;
 }
@@ -83,31 +160,101 @@ p {
   background-color: #FFFFFF;
 }
 
-/* Header */
-#site-header {
-  background-color: #2C1A13;
-  color: #FAF5EC;
-  padding: 20px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #C8892A;
+/*  Mood Filter Bar*/
+#mood-bar {
+  margin: 10px 0 16px 0;
 }
 
+/* Mood Pills */
+.mood-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 3px 3px 3px 0;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Georgia, "Times New Roman", serif;
+}
 
-/* Blockquote */
-blockquote {
+.mood-sad {
+  background-color: #E8EEF7;
+  color: #2A4A7F;
+  border-color: #BFD0EA;
+}
+
+.mood-hopeful {
+  background-color: #EAF3DE;
+  color: #3B6D11;
+  border-color: #C0DD97;
+}
+
+.mood-romantic {
+  background-color: #FBEAF0;
+  color: #993556;
+  border-color: #F4C0D1;
+}
+
+.mood-powerful {
+  background-color: #FAEEDA;
+  color: #854F0B;
+  border-color: #FAC775;
+}
+
+/*  Compose / Post Form */
+#compose {
   background-color: #FFFFFF;
-  border-style: none;
-  border-left-style: solid;
-  border-left-width: 3px;
-  border-left-color: #C8892A;
-  margin: 8px 0 10px 0;
-  padding: 6px 14px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E0D5C5;
+  margin: 0 0 20px 0;
+  padding: 16px;
+}
+
+#compose h2 {
+  margin-bottom: 12px;
+}
+
+.form-row {
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #9C7A5A;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E0D5C5;
+  padding: 8px;
+  width: 95%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  background-color: #FAF5EC;
+  color: #2C1A13;
+}
+
+.form-row textarea {
   font-style: italic;
-  font-size: 17px;
-  line-height: 1.7;
-  color: #1C1410;
-  width: auto;
+}
+
+#form-submit {
+  background-color: #1C1410;
+  color: #C8892A;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #1C1410;
+  padding: 8px 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
 }
 
 /* Quote Cards */
@@ -152,64 +299,40 @@ blockquote {
   font-weight: bold;
 }
 
-/*Mood Sections (Discover) */
-.mood-section {
-  margin-bottom: 24px;
+/*  Card Actions (likes, comments, save)*/
+.card-actions {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #F0E8DC;
+  padding-top: 10px;
+  margin-top: 8px;
 }
 
-.mood-section h2 {
-  font-size: 16px;
-  text-transform: none;
-  letter-spacing: 0;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #E0D5C5;
-  padding-bottom: 8px;
-  margin-bottom: 14px;
-}
-
-/*Navigation*/
-nav.navbar {
-  background-color: #2C1A13;
-  width: 100%;
-  overflow: auto;
-}
-
-nav.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: inline;
-}
-
-nav.navbar li a {
-  padding: 5px 7px;
-  margin: 2px;
-  text-align: center;
+.card-actions a {
+  color: #9C7A5A;
   text-decoration: none;
-  display: block;
-  width: 17%;
-  display: inline-block;
+  font-size: 12px;
+  margin-right: 14px;
 }
 
-nav.navbar li a:link, nav.navbar li a:visited {
-  background-color: #733A10;
-  color: #F1E4C8;
-}
-
-nav.navbar ul li a:hover, nav.navbar ul li a:active {
-  background-color: #BB7D23;
-}
-
-/* Links */
-div.lnks a {
-  color: #2C1A13;
-  text-decoration: none;
-}
-
-div.lnks a:hover {
+.card-actions a:hover {
   color: #C8892A;
-  text-decoration: none;
+}
+
+/*  Blockquote */
+blockquote {
+  background-color: #FFFFFF;
+  border-style: none;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #C8892A;
+  margin: 8px 0 10px 0;
+  padding: 6px 14px;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #1C1410;
+  width: auto;
 }
 
 /* Sidebar left nav links*/
@@ -250,50 +373,65 @@ div.lnks a:hover {
   border-bottom-color: #F0E8DC;
 }
 
-/* =====================
-   Mood Filter Bar
-   ===================== */
-#mood-bar {
-  margin: 10px 0 16px 0;
-}
-
-/*  Mood Pills*/
-.mood-pill {
-  display: inline-block;
-  padding: 4px 12px;
-  margin: 3px 3px 3px 0;
+/* Recommendation Cards (right sidebar)*/
+.reco-card {
   border-style: solid;
   border-width: 1px;
-  text-decoration: none;
+  border-color: #E0D5C5;
+  margin: 0 0 12px 0;
+  padding: 10px;
+  background-color: #FFFFFF;
+}
+
+.reco-card blockquote {
+  font-size: 13px;
+  padding: 4px 10px;
+  margin: 0 0 6px 0;
+  border-left-width: 2px;
+}
+
+.reco-card .book-ref {
+  font-size: 11px;
+}
+
+
+
+/*Sidebar note text*/
+.sidebar-note {
   font-size: 12px;
-  font-family: Georgia, "Times New Roman", serif;
+  color: #9C7A5A;
+  font-style: italic;
+  margin: 0 0 12px 0;
 }
 
-.mood-sad {
-  background-color: #E8EEF7;
-  color: #2A4A7F;
-  border-color: #BFD0EA;
+/* =====================
+   Mood Sections (Discover page)
+   ===================== */
+.mood-section {
+  margin-bottom: 24px;
 }
 
-.mood-hopeful {
-  background-color: #EAF3DE;
-  color: #3B6D11;
-  border-color: #C0DD97;
+.mood-section h2 {
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #E0D5C5;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
 }
 
-.mood-romantic {
-  background-color: #FBEAF0;
-  color: #993556;
-  border-color: #F4C0D1;
+/* HR divider*/
+hr {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E0D5C5;
+  margin: 20px 0;
 }
 
-.mood-powerful {
-  background-color: #FAEEDA;
-  color: #854F0B;
-  border-color: #FAC775;
-}
-
-/* Footer */
+/* Footer
+  */
 #site-footer {
   background-color: #1C1410;
   color: #F2E8D5;
@@ -337,4 +475,3 @@ div.lnks a:hover {
 #site-footer a:hover {
   color: #C8892A;
 }
-
