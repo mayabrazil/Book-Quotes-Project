@@ -38,6 +38,13 @@ h3 {
   margin: 20px 0 8px 0;
 }
 
+/* Paragraphs */
+p {
+  color: #2C1A13;
+  margin-left: 20px;
+}
+
+
 /*main content*/
 #main-wrap {
   margin: 20px;
@@ -53,8 +60,9 @@ h3 {
   border-width: 3px;
   border-color: #C8892A;
 }
-/*Navigation*/
 
+
+/*Navigation*/
 nav.navbar {
   background-color: #2C1A13;
   width: 100%;
@@ -96,4 +104,43 @@ div.lnks a {
 div.lnks a:hover {
   color: #C8892A;
   text-decoration: none;
+}
+
+/* Footer */
+#site-footer {
+  background-color: #2C1A13;
+  color: #F2E8D5;
+  padding: 20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #C8892A;
+  margin-top: 20px;
+}
+
+#site-footer h3 {
+  color: #C8892A;
+}
+
+#site-footer address ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#site-footer address li {
+  color: #F2E8D5;
+  margin-bottom: 5px;
+}
+
+#site-footer a {
+  color: #F2E8D5;
+  text-decoration: none;
+}
+
+#site-footer a:visited {
+  color: #F2E8D5;
+}
+
+#site-footer a:hover {
+  color: #C8892A;
 }
