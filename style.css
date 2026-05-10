@@ -37,3 +37,63 @@ h3 {
   text-transform: uppercase;
   margin: 20px 0 8px 0;
 }
+
+/*main content*/
+#main-wrap {
+  margin: 20px;
+  padding: 10px;
+}
+
+/* Header */
+#site-header {
+  background-color: #2C1A13;
+  color: #FAF5EC;
+  padding: 20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #C8892A;
+}
+/*Navigation*/
+
+nav.navbar {
+  background-color: #2C1A13;
+  width: 100%;
+  overflow: auto;
+}
+
+nav.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+nav.navbar li a {
+  padding: 5px 7px;
+  margin: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 17%;
+  display: inline-block;
+}
+
+nav.navbar li a:link, nav.navbar li a:visited {
+  background-color: #733A10;
+  color: #F1E4C8;
+}
+
+nav.navbar ul li a:hover, nav.navbar ul li a:active {
+  background-color: #BB7D23;
+}
+
+/* Links */
+div.lnks a {
+  color: #2C1A13;
+  text-decoration: none;
+}
+
+div.lnks a:hover {
+  color: #C8892A;
+  text-decoration: none;
+}
