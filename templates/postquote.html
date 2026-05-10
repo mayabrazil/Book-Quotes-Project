@@ -77,59 +77,97 @@
 </body>
 
 <script>
-function suggestMood() {
-    const quote = document.getElementById('quote-text').value;
-    if (!quote) {
-        alert('Please type a quote first!');
-        return;
-    }
-
-    const btn = document.querySelector('.btn-ai');
-    btn.textContent = '⏳ Thinking...';
-    btn.disabled = true;
-
-    fetch('/suggest-mood', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ quote: quote })
-    })
-    .then(res => res.json())
-    .then(data => {
-        const resultBox = document.getElementById('ai-result');
-        const resultText = document.getElementById('ai-mood-text');
-        resultText.textContent = '✨ AI suggests: ' + data.mood;
-        resultBox.style.display = 'block';
-
-        const select = document.getElementById('quote-mood');
-        for (let option of select.options) {
-            if (option.value === data.mood.toLowerCase()) {
-                option.selected = true;
-            }
+    function suggestMood() {
+        const quote = document.getElementById('quote-text').value;
+        if (!quote) {
+            alert('Please type a quote first!');
+            return;
         }
 
-        btn.textContent = '✨ Suggest Mood with AI';
-        btn.disabled = false;
-    })
-    .catch(err => {
-        alert('AI suggestion failed, please select mood manually.');
-        btn.textContent = '✨ Suggest Mood with AI';
-        btn.disabled = false;
-    });
-}
+        const btn = document.querySelector('.btn-ai');
+        btn.textContent = '⏳ Thinking...';
+        btn.disabled = true;
 
-function postQuote() {
-    const quote = document.getElementById('quote-text').value;
-    const book = document.getElementById('book-title').value;
-    const author = document.getElementById('book-author').value;
-    const mood = document.getElementById('quote-mood').value;
+        fetch('/suggest-mood', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ quote: quote })
+        })
+        .then(res => res.json())
+        .then(data => {
+            const resultBox = document.getElementById('ai-result');
+            const resultText = document.getElementById('ai-mood-text');
+            resultText.textContent = '✨ AI suggests: ' + data.mood;
+            resultBox.style.display = 'block';
 
-    if (!quote || !book || !author || !mood) {
-        alert('Please fill in all fields!');
-        return;
+            const select = document.getElementById('quote-mood');
+            for (let option of select.options) {
+                if (option.value === data.mood.toLowerCase()) {
+                    option.selected = true;
+                }
+            }
+
+            btn.textContent = '✨ Suggest Mood with AI';
+            btn.disabled = false;
+        })
+        .catch(err => {
+            alert('AI suggestion failed, please select mood manually.');
+            btn.textContent = '✨ Suggest Mood with AI';
+            btn.disabled = false;
+        });
     }
 
-    alert('Quote posted successfully! 🎉');
-}
+    function postQuote() {
+
+        const quote = document.getElementById('quote-text').value.trim();
+        const book = document.getElementById('book-title').value.trim();
+        const author = document.getElementById('book-author').value.trim();
+        const mood = document.getElementById('quote-mood').value;
+
+        // validation
+        if (!quote || !book || !author || !mood) {
+            alert('Please fill in all fields!');
+            return;
+        }
+
+        fetch('/post-quote', {
+
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                quote: quote,
+                book: book,
+                author: author,
+                mood: mood
+            })
+
+        })
+
+        .then(response => response.json())
+
+        .then(data => {
+
+            alert(data.message);
+
+            // clears the form
+            document.getElementById('quote-text').value = '';
+            document.getElementById('book-title').value = '';
+            document.getElementById('book-author').value = '';
+            document.getElementById('quote-mood').value = '';
+
+            // redirect to explore feed
+            window.location.href = '/explore';
+        })
+
+        .catch(error => {
+            console.error(error);
+            alert('Something went wrong posting the quote.');
+        });
+    }
 </script>
 
 </html>

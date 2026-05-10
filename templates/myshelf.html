@@ -30,18 +30,22 @@
 
     <!-- Stats Section -->
     <div class="stats fade-in">
+
         <div class="stat-box">
-            <h2>12</h2>
+            <h2>{{ posted_count }}</h2>
             <p>Quotes Posted</p>
         </div>
+
         <div class="stat-box">
-            <h2>8</h2>
+            <h2>{{ saved_count }}</h2>
             <p>Quotes Saved</p>
         </div>
+
         <div class="stat-box">
-            <h2>Hopeful</h2>
+            <h2>{{ favourite_mood }}</h2>
             <p>Favourite Mood</p>
         </div>
+
     </div>
 
     <div class="divider">✦ ✦ ✦</div>
@@ -85,29 +89,138 @@
     <div class="divider">✦ ✦ ✦</div>
 
     <!-- My Posted Quotes Section -->
-    <div class="posted-quotes fade-in">
-        <h2>📚 My Posted Quotes</h2>
+<div class="posted-quotes fade-in">
+
+    <h2>📚 My Posted Quotes</h2>
+
+    {% if my_posts %}
+
+        {% for q in my_posts %}
+
         <div class="quote-card">
-            <p class="quote-text">"It was the best of times, it was the worst of times."</p>
-            <p class="quote-book">— A Tale of Two Cities, Charles Dickens</p>
+
+            <p class="quote-text">
+                "{{ q.quote }}"
+            </p>
+
+            <p class="quote-book">
+                — {{ q.book }}, {{ q.author }}
+            </p>
+            <p class="quote-time">
+                {{ q.timestamp }}
+            </p>
+
             <div class="card-actions">
-                <span class="mood-tag">⚡ Powerful</span>
-                <button class="btn-save">🔖 Save</button>
-                <button class="btn-like">♡ Like</button>
-                <button class="btn-delete">🗑 Delete</button>
+
+                <span class="mood-tag">
+                    {{ q.mood }}
+                </span>
+
+                <button class="btn-like">
+                    ♡ {{ q.likes }} Like
+                </button>
+
+                <button
+                    class="btn-delete"
+                    data-id="{{ q.id }}"
+                    onclick="deleteQuote(this)"
+                >
+                    🗑 Delete
+                </button>
+
             </div>
+
         </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No posted quotes yet.</p>
+
+    {% endif %}
+
+</div>
+
+<div class="divider">✦ ✦ ✦</div>
+
+<!-- Saved Quotes Section -->
+<div class="posted-quotes fade-in">
+
+    <h2>🔖 Saved Quotes</h2>
+
+    {% if saved %}
+
+        {% for q in saved %}
+
         <div class="quote-card">
-            <p class="quote-text">"She was beautiful, but not like those girls in magazines."</p>
-            <p class="quote-book">— The Perks of Being a Wallflower, Stephen Chbosky</p>
+
+            <p class="quote-text">
+                "{{ q.quote }}"
+            </p>
+
+            <p class="quote-book">
+                — {{ q.book }}, {{ q.author }}
+            </p>
+            <p class="quote-time">
+                {{ q.timestamp }}
+            </p>
+
             <div class="card-actions">
-                <span class="mood-tag">💕 Romantic</span>
-                <button class="btn-save">🔖 Save</button>
-                <button class="btn-like">♡ Like</button>
-                <button class="btn-delete">🗑 Delete</button>
+
+                <span class="mood-tag">
+                    {{ q.mood }}
+                </span>
+
+                <button class="btn-like">
+                    ♡ {{ q.likes }} Like
+                </button>
+
             </div>
+
         </div>
-    </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No saved quotes yet.</p>
+
+    {% endif %}
+
+</div>
+
+<script>
+
+function deleteQuote(btn) {
+
+    const id = btn.getAttribute("data-id");
+
+    fetch('/delete', {
+
+        method: 'POST',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            id: Number(id)
+        })
+    })
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        // removes quote visually
+        btn.closest('.quote-card').remove();
+
+        alert(data.message);
+    });
+}
+
+</script>
 
 </body>
 </html>
