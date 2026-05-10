@@ -398,3 +398,115 @@ a.mood-tag {
     transform: translateY(-3px);
     background-color: #2d4070;
 }
+
+/* 404 Page */
+.error-page {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 8em;
+    color: #1a2744;
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.error-divider {
+    color: #1a2744;
+    opacity: 0.3;
+    letter-spacing: 8px;
+    margin: 10px 0;
+}
+
+.error-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #1a2744;
+    margin-bottom: 10px;
+}
+
+.error-subtitle {
+    color: #7a8aaa;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.error-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #1a2744;
+    font-size: 1em;
+    background-color: white;
+    border-left: 4px solid #1a2744;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 450px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.btn-return {
+    background-color: #1a2744;
+    color: #f5f0e8;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-explore {
+    background-color: white;
+    color: #1a2744;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.95em;
+    border: 1.5px solid #1a2744;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-return:hover, .btn-explore:hover {
+    transform: translateY(-3px);
+}
+
+.error-contact {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: #1a2744;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.contact-info {
+    color: #7a8aaa;
+    font-size: 0.95em;
+}
+
+.contact-info a {
+    color: #1a2744;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid #1a2744;
+}
