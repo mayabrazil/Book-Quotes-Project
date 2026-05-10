@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BookQuotes — Post a Quote</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="nav-logo">📖 BookQuotes</div>
+    <div class="nav-links">
+        <a href="/home">Post a Quote</a>
+        <a href="/explore">Explore</a>
+        <a href="/myshelf">My Shelf</a>
+    </div>
+</nav>
+
+    <!-- Page Title -->
+    <div class="profile fade-in">
+    <div class="profile-avatar">📖</div>
+    <h1>Welcome to BookQuotes</h1>
+    <p class="bio">Share a quote that stayed with you</p>
+</div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Post Quote Form -->
+    <div class="post-form fade-in">
+
+        <div class="form-group">
+            <label class="form-label">Quote</label>
+            <textarea id="quote-text" class="form-input" rows="4" 
+                placeholder="Paste a quote that stayed with you..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Book Title</label>
+            <input type="text" id="book-title" class="form-input" 
+                placeholder="e.g. Normal People">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Author</label>
+            <input type="text" id="book-author" class="form-input" 
+                placeholder="e.g. Sally Rooney">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Mood</label>
+            <select id="quote-mood" class="form-input">
+                <option value="">-- Select a mood --</option>
+                <option value="sad">🌧 Sad</option>
+                <option value="hopeful">🌤 Hopeful</option>
+                <option value="romantic">💕 Romantic</option>
+                <option value="powerful">⚡ Powerful</option>
+            </select>
+        </div>
+
+        <!-- AI Mood Suggestion -->
+        <div class="ai-suggest-box">
+            <p class="ai-suggest-title">✨ Not sure about the mood?</p>
+            <p class="ai-suggest-desc">Let AI suggest a mood based on your quote</p>
+            <button class="btn-ai" onclick="suggestMood()">✨ Suggest Mood with AI</button>
+            <div id="ai-result" class="ai-result" style="display:none;">
+                <p id="ai-mood-text"></p>
+            </div>
+        </div>
+
+        <button class="btn-post" onclick="postQuote()">📖 Post Quote</button>
+
+    </div>
+
+</body>
+
+<script>
+function suggestMood() {
+    const quote = document.getElementById('quote-text').value;
+    if (!quote) {
+        alert('Please type a quote first!');
+        return;
+    }
+
+    const btn = document.querySelector('.btn-ai');
+    btn.textContent = '⏳ Thinking...';
+    btn.disabled = true;
+
+    fetch('/suggest-mood', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ quote: quote })
+    })
+    .then(res => res.json())
+    .then(data => {
+        const resultBox = document.getElementById('ai-result');
+        const resultText = document.getElementById('ai-mood-text');
+        resultText.textContent = '✨ AI suggests: ' + data.mood;
+        resultBox.style.display = 'block';
+
+        const select = document.getElementById('quote-mood');
+        for (let option of select.options) {
+            if (option.value === data.mood.toLowerCase()) {
+                option.selected = true;
+            }
+        }
+
+        btn.textContent = '✨ Suggest Mood with AI';
+        btn.disabled = false;
+    })
+    .catch(err => {
+        alert('AI suggestion failed, please select mood manually.');
+        btn.textContent = '✨ Suggest Mood with AI';
+        btn.disabled = false;
+    });
+}
+
+function postQuote() {
+    const quote = document.getElementById('quote-text').value;
+    const book = document.getElementById('book-title').value;
+    const author = document.getElementById('book-author').value;
+    const mood = document.getElementById('quote-mood').value;
+
+    if (!quote || !book || !author || !mood) {
+        alert('Please fill in all fields!');
+        return;
+    }
+
+    alert('Quote posted successfully! 🎉');
+}
+</script>
+
+</html>

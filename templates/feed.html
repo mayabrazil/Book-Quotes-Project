@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BookQuotes — Explore</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">📖 BookQuotes</div>
+        <div class="nav-links">
+            <a href="/home">Post a Quote</a>
+            <a href="/explore" class="active">Explore</a>
+            <a href="/myshelf">My Shelf</a>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="profile fade-in">
+        <div class="profile-avatar">🔍</div>
+        <h1>Explore Quotes</h1>
+        <p class="bio">Browse recent quotes or jump to a mood</p>
+</div>
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Mood Jump Bar -->
+    <div class="moods fade-in">
+        <h2>Jump to a Mood</h2>
+        <div class="mood-tags">
+            <a href="#recent" class="mood-tag">✨ Recent</a>
+            <a href="#sad" class="mood-tag">🌧 Sad</a>
+            <a href="#hopeful" class="mood-tag">🌤 Hopeful</a>
+            <a href="#romantic" class="mood-tag">💕 Romantic</a>
+            <a href="#powerful" class="mood-tag">⚡ Powerful</a>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Recent Quotes -->
+    <div class="posted-quotes fade-in" id="recent">
+        <h2>✨ Recent Quotes</h2>
+
+        <div class="quote-card">
+            <div class="quote-user">maya.reads <span class="post-time">2 hours ago</span></div>
+            <p class="quote-text">"She was a girl who knew how to be happy even when she was sad. And that's important."</p>
+            <p class="quote-book">— Normal People, Sally Rooney</p>
+            <div class="card-actions">
+                <span class="mood-tag">🌧 Sad</span>
+                <button class="btn-like">♡ 84</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-user">juniper.pages <span class="post-time">5 hours ago</span></div>
+            <p class="quote-text">"You are not the darkness you endured. You are the light that refused to surrender."</p>
+            <p class="quote-book">— Taste the Wild Wonder, John Mark Green</p>
+            <div class="card-actions">
+                <span class="mood-tag">⚡ Powerful</span>
+                <button class="btn-like">♡ 231</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-user">autumn.annotates <span class="post-time">yesterday</span></div>
+            <p class="quote-text">"I am not afraid of storms, for I am learning how to sail my ship."</p>
+            <p class="quote-book">— Little Women, Louisa May Alcott</p>
+            <div class="card-actions">
+                <span class="mood-tag">⚡ Powerful</span>
+                <button class="btn-like">♡ 512</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-user">sofía.reads <span class="post-time">2 days ago</span></div>
+            <p class="quote-text">"I have waited for this opportunity for more than half a century, to repeat to you once again my vow of eternal fidelity and everlasting love."</p>
+            <p class="quote-book">— Love in the Time of Cholera, Gabriel García Márquez</p>
+            <div class="card-actions">
+                <span class="mood-tag">💕 Romantic</span>
+                <button class="btn-like">♡ 349</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Sad Section -->
+    <div class="posted-quotes fade-in" id="sad">
+        <h2>🌧 Sad</h2>
+        <p class="section-desc">Quotes that sit with you — the ones that name something you couldn't.</p>
+
+        <div class="quote-card">
+            <div class="quote-user">winter.pages <span class="post-time">3 days ago</span></div>
+            <p class="quote-text">"So it goes."</p>
+            <p class="quote-book">— Slaughterhouse-Five, Kurt Vonnegut</p>
+            <div class="card-actions">
+                <span class="mood-tag">🌧 Sad</span>
+                <button class="btn-like">♡ 901</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-user">rainy.reader <span class="post-time">1 week ago</span></div>
+            <p class="quote-text">"I took a deep breath and listened to the old brag of my heart: I am, I am, I am."</p>
+            <p class="quote-book">— The Bell Jar, Sylvia Plath</p>
+            <div class="card-actions">
+                <span class="mood-tag">🌧 Sad</span>
+                <button class="btn-like">♡ 1.2k</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Hopeful Section -->
+    <div class="posted-quotes fade-in" id="hopeful">
+        <h2>🌤 Hopeful</h2>
+        <p class="section-desc">Quotes that reach a hand out in the dark.</p>
+
+        <div class="quote-card">
+            <div class="quote-user">aurora.reads <span class="post-time">2 days ago</span></div>
+            <p class="quote-text">"You are allowed to be both a masterpiece and a work in progress simultaneously."</p>
+            <p class="quote-book">— Sophia Bush</p>
+            <div class="card-actions">
+                <span class="mood-tag">🌤 Hopeful</span>
+                <button class="btn-like">♡ 647</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-user">juniper.pages <span class="post-time">5 days ago</span></div>
+            <p class="quote-text">"It does not do to dwell on dreams and forget to live."</p>
+            <p class="quote-book">— Harry Potter and the Philosopher's Stone, J.K. Rowling</p>
+            <div class="card-actions">
+                <span class="mood-tag">🌤 Hopeful</span>
+                <button class="btn-like">♡ 832</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Romantic Section -->
+    <div class="posted-quotes fade-in" id="romantic">
+        <h2>💕 Romantic</h2>
+        <p class="section-desc">Quotes about love — tender, aching, and everything in between.</p>
+
+        <div class="quote-card">
+            <div class="quote-user">sofía.reads <span class="post-time">4 days ago</span></div>
+            <p class="quote-text">"Whatever our souls are made of, his and mine are the same."</p>
+            <p class="quote-book">— Wuthering Heights, Emily Brontë</p>
+            <div class="card-actions">
+                <span class="mood-tag">💕 Romantic</span>
+                <button class="btn-like">♡ 1.4k</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-user">ink.and.earl <span class="post-time">6 days ago</span></div>
+            <p class="quote-text">"I would rather share one lifetime with you than face all the ages of this world alone."</p>
+            <p class="quote-book">— The Lord of the Rings, J.R.R. Tolkien</p>
+            <div class="card-actions">
+                <span class="mood-tag">💕 Romantic</span>
+                <button class="btn-like">♡ 988</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- Powerful Section -->
+    <div class="posted-quotes fade-in" id="powerful">
+        <h2>⚡ Powerful</h2>
+        <p class="section-desc">Quotes that make you sit up straighter.</p>
+
+        <div class="quote-card">
+            <div class="quote-user">autumn.annotates <span class="post-time">1 day ago</span></div>
+            <p class="quote-text">"Not all those who wander are lost."</p>
+            <p class="quote-book">— The Fellowship of the Ring, J.R.R. Tolkien</p>
+            <div class="card-actions">
+                <span class="mood-tag">⚡ Powerful</span>
+                <button class="btn-like">♡ 2.1k</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+
+        <div class="quote-card">
+            <div class="quote-user">maya.reads <span class="post-time">3 days ago</span></div>
+            <p class="quote-text">"We accept the love we think we deserve."</p>
+            <p class="quote-book">— The Perks of Being a Wallflower, Stephen Chbosky</p>
+            <div class="card-actions">
+                <span class="mood-tag">⚡ Powerful</span>
+                <button class="btn-like">♡ 1.7k</button>
+                <button class="btn-save">🔖 Save</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
