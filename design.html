@@ -27,21 +27,30 @@
     <!--Naviagtion-->
     <nav class="navbar">
         <ul>
-            <li><a href="desgin.html">Home</a></li>
+            <li><a href="desgin.html">Home<a></li>
+            <li><a href="discover.html">Discover</a></li>
         </ul>
     </nav>
     <div id="main=wrap">
-        <!--Add the mood filers later-->
         <section id="mood-bar">
-
+        <p>
+            <strong>Filter by mood:</strong> &nbsp;
+            <a href="discover.html#sad" class="mood-pill mood-sad">sad</a>
+            <a href="discover.html#hopeful" class="mood-pill mood-hopeful">hopeful</a>
+            <a href="discover.html#romantic" class="mood-pill mood-romantic">romantic</a>
+            <a href="discover.html#powerful" class="mood-pill mood-powerful">powerful</a>
+        </p>
         </section>
     <div id="page-columns">
+
+    
     <!-- Left Sidebar -->
       <aside id="sidebar-left">
         <h2>Browse</h2>
         <div class="lnks">
           <ul>
             <li><a href="design.html">Home Feed</a></li>
+            <li><a href="discover.html">Discover</a></li>
           </ul>
         </div>
 
@@ -53,9 +62,43 @@
           <li>Pachinko</li>
         </ol>
       </aside>
+     
+        <!-- Main Feed -->
+        <main id="feed">
 
-    
+        <!-- Post a Quote -->
+        <section id="compose">
+          <h2>Post a Quote</h2>
+          <form action="#" method="post">
+            <div class="form-row">
+              <label for="quote-text">Quote</label>
+              <textarea id="quote-text" name="quote-text" rows="3" placeholder="Paste a quote that stayed with you…"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="book-title">Book Title</label>
+              <input type="text" id="book-title" name="book-title" placeholder="e.g. Normal People" />
+            </div>
+            <div class="form-row">
+              <label for="book-author">Author</label>
+              <input type="text" id="book-author" name="book-author" placeholder="e.g. Tahereh Mafi" />
+            </div>
+            <div class="form-row">
+              <label for="quote-mood">Mood</label>
+              <select id="quote-mood" name="quote-mood">
+                <option value="">-- Select a mood --</option>
+                <option value="sad">Sad</option>
+                <option value="hopeful">Hopeful</option>
+                <option value="romantic">Romantic</option>
+                <option value="powerful">Powerful</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <input type="submit" value="Post Quote" id="form-submit" />
+            </div>
+          </form>
+        </section>
 
+        <hr/>
 </body>
 
 </html>
