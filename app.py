@@ -17,6 +17,7 @@ quotes = []
 likes = []
 saved = []
 my_posts = []
+current_user = "gdg.reads"
 
 
 # HOME PAGE
@@ -69,7 +70,9 @@ def myshelf():
 
         saved_count=len(saved),
 
-        favourite_mood=favourite_mood
+        favourite_mood=favourite_mood,
+
+        current_user=current_user
     )
 
 
@@ -94,6 +97,8 @@ def post_quote():
     new_quote = {
 
         'id': len(quotes),
+
+        'username': current_user,
 
         'quote': quote,
         'book': book,

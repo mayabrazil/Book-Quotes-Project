@@ -34,7 +34,9 @@
     {% for q in quotes %}
     <div class="quote-card">
 
-        <div class="quote-user">anonymous.reader</div>
+        <div class="quote-user">
+            {{ q.username }}
+        </div>
 
         <p class="quote-text">"{{ q.quote }}"</p>
 
