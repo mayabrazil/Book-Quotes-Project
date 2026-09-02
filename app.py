@@ -11,7 +11,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = "hackathon-secret-key"
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 cred = credentials.Certificate(
     "bookquotes-app-861fa-firebase-adminsdk-fbsvc-776560ef3e.json"
