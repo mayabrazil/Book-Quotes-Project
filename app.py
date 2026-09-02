@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = "hackathon-secret-key"
 
 cred = credentials.Certificate(
-    "bookquotes-app-firebase-adminsdk-fbsvc-e0994f48fb.json"
+    "bookquotes-app-861fa-firebase-adminsdk-fbsvc-776560ef3e.json"
 )
 
 firebase_admin.initialize_app(cred)

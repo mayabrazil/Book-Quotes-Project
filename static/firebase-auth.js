@@ -9,12 +9,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDwbnwK1fndBoWASC28xxbeQc-C9Z3vLgA",
-  authDomain: "bookquotes-app.firebaseapp.com",
-  projectId: "bookquotes-app",
-  storageBucket: "bookquotes-app.firebasestorage.app",
-  messagingSenderId: "836802010083",
-  appId: "1:836802010083:web:6196e040fac55f56e51ed6"
+  apiKey: "AIzaSyD_qGs1nOZYK--ih3X0UZbhOnKuUc6qXrE",
+  authDomain: "bookquotes-app-861fa.firebaseapp.com",
+  projectId: "bookquotes-app-861fa",
+  storageBucket: "bookquotes-app-861fa.firebasestorage.app",
+  messagingSenderId: "491468363963",
+  appId: "1:491468363963:web:45043e5cf271f2d5fff19e"
 };
 
 const app = initializeApp(firebaseConfig);
