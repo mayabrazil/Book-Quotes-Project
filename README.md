@@ -8,10 +8,10 @@ Built as a 24-hour hackathon project with a focus on combining a social reading 
 🔐 Google Authentication — Sign in and out securely using Firebase Authentication
 ✍️ Post Quotes — Share quotes with the book title, author, and mood
 🤖 AI Mood Suggestions — Use Google Gemini to classify quotes as:
-Sad
-Hopeful
-Romantic
-Powerful
+- Sad
+- Hopeful
+- Romantic
+- Powerful
 🔎 Explore Feed — Browse quotes shared by users
 ❤️ Like Quotes — Interact with quotes through likes
 🔖 Save Quotes — Save quotes to revisit later
@@ -60,6 +60,7 @@ The application uses:
 Firebase Authentication for user identity
 Flask sessions for maintaining login state
 Environment variables for private API credentials
+
 🚀 Running Locally
 1. Clone the repository
 git clone https://github.com/mayabrazil/GDG-Hackathon-Project.git
