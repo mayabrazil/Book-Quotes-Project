@@ -4,7 +4,7 @@ A social media-style web application for discovering, sharing, and saving meanin
 
 Built as a 24-hour hackathon project with a focus on combining a social reading experience with AI-powered mood classification.
 
-✨ Features
+✨ Features:
 🔐 Google Authentication — Sign in and out securely using Firebase Authentication
 ✍️ Post Quotes — Share quotes with the book title, author, and mood
 🤖 AI Mood Suggestions — Use Google Gemini to classify quotes as:
@@ -20,41 +20,26 @@ Powerful
 📄 Custom 404 Page — A themed error page for unavailable chapters
 🛠️ Tech Stack
 
-Frontend
+Frontend:
 
-HTML
-CSS
-JavaScript
+- HTML
+- CSS
+- JavaScript
 
-Backend
+Backend:
 
-Python
-Flask
+- Python
+- Flask
 
-Authentication
+Authentication:
 
-Firebase Authentication
+- Firebase Authentication
 
-AI
+AI:
 
-Google Gemini API
-🏗️ Project Structure
-GDG-Hackathon-Project/
-│
-├── app.py
-├── README.md
-├── .gitignore
-│
-├── static/
-│   ├── firebase-auth.js
-│   └── style.css
-│
-└── templates/
-    ├── 404.html
-    ├── feed.html
-    ├── myshelf.html
-    └── postquote.html
-🤖 How the AI Works
+- Google Gemini API
+
+🤖 How the AI Works:
 
 When creating a post, users can ask the application to suggest a mood for their quote.
 
@@ -64,7 +49,7 @@ Sad · Hopeful · Romantic · Powerful
 
 The selected mood is then associated with the quote and displayed throughout the application.
 
-🔐 Authentication & Security
+🔐 Authentication & Security:
 
 BookQuotes uses Firebase Authentication for Google sign-in.
 
@@ -102,7 +87,7 @@ This project was developed during a 24-hour GDG hackathon as a rapid prototype.
 
 The application currently uses in-memory Python data structures for quote, like, save, and post storage. As a result, data resets when the Flask server restarts.
 
-💡 Future Improvements
+💡 Future Improvements:
 Persistent database using Firebase Firestore or another database
 User-specific saved quotes and likes
 More advanced personalized recommendations
