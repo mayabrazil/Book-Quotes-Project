@@ -5,19 +5,29 @@ A social media-style web application for discovering, sharing, and saving meanin
 Built as a 24-hour hackathon project with a focus on combining a social reading experience with AI-powered mood classification.
 
 ✨ Features:
+
 🔐 Google Authentication — Sign in and out securely using Firebase Authentication
+
 ✍️ Post Quotes — Share quotes with the book title, author, and mood
+
 🤖 AI Mood Suggestions — Use Google Gemini to classify quotes as:
 - Sad
 - Hopeful
 - Romantic
 - Powerful
+
 🔎 Explore Feed — Browse quotes shared by users
+
 ❤️ Like Quotes — Interact with quotes through likes
+
 🔖 Save Quotes — Save quotes to revisit later
+
 📖 My Shelf — View your posted and saved quotes
+
 🗑️ Delete Posts — Remove quotes from your shelf
+
 📄 Custom 404 Page — A themed error page for unavailable chapters
+
 🛠️ Tech Stack
 
 Frontend:
@@ -62,6 +72,7 @@ Flask sessions for maintaining login state
 Environment variables for private API credentials
 
 🚀 Running Locally
+
 1. Clone the repository
 git clone https://github.com/mayabrazil/GDG-Hackathon-Project.git
 cd GDG-Hackathon-Project
@@ -82,6 +93,7 @@ python3 app.py
 Then open:
 
 http://127.0.0.1:5000
+
 📌 Project Notes
 
 This project was developed during a 24-hour GDG hackathon as a rapid prototype.
@@ -89,13 +101,21 @@ This project was developed during a 24-hour GDG hackathon as a rapid prototype.
 The application currently uses in-memory Python data structures for quote, like, save, and post storage. As a result, data resets when the Flask server restarts.
 
 💡 Future Improvements:
+
 Persistent database using Firebase Firestore or another database
+
 User-specific saved quotes and likes
+
 More advanced personalized recommendations
+
 Search and filtering by book, author, or mood
+
 Profile customization
+
 Improved responsive design
+
 Deployment to a production hosting platform
+
 👩‍💻 Built By
 
 Maya Brazil, Hafsa Ahmed, and Rumaisa Fatima.
